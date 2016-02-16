@@ -1,0 +1,41 @@
+# store_hdf5
+path_h5: tmp/data.h5
+path_tr: data/Yang_Y
+path_te: data/Set14_Y
+path_va: data/Set5_Y
+iw: 56
+stride: 19
+sr: 2
+augment: true
+prune: 0.0
+border: 3
+chunk_size: 20000
+data_cached: true
+
+# inference
+fw: 5
+pw: 5
+ps: 1
+n_chans: 4
+n_c: 192
+T: 8
+cw: 6
+thresh0: 9.E-3
+e_rank: -1
+s_rank: -1
+d_rank: -1
+
+# training
+path_tmp: tmp
+load_in_memory: true
+mb_size: 32
+n_epochs: 13
+l2_reg: 1.E-4
+lr0: 1.E-2
+n_epochs_per_decay: 4
+lr_decay_factor: 0.1
+grad_norm_thresh: 50
+
+# evaluation
+save_sr_imgs: false
+path_eval: data/Set5_Y

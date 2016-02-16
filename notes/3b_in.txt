@@ -1,0 +1,364 @@
+I tensorflow/stream_executor/dso_loader.cc:101] successfully opened CUDA library libcublas.so.7.0 locally
+I tensorflow/stream_executor/dso_loader.cc:101] successfully opened CUDA library libcudnn.so.6.5 locally
+I tensorflow/stream_executor/dso_loader.cc:101] successfully opened CUDA library libcufft.so.7.0 locally
+I tensorflow/stream_executor/dso_loader.cc:101] successfully opened CUDA library libcuda.so locally
+I tensorflow/stream_executor/dso_loader.cc:101] successfully opened CUDA library libcurand.so.7.0 locally
+INFO:tensorflow:Created variable thresh:0 with shape (192,) and init <function _initializer at 0x7fd2ec854b18>
+INFO:tensorflow:Created variable thresh:0 with shape (192,) and init <function _initializer at 0x7fd2ec854b18>
+INFO:tensorflow:Created variable w_conv:0 with shape (5, 5, 1, 4) and init <function _initializer at 0x7fd2810956e0>
+INFO:tensorflow:Created variable w_conv:0 with shape (5, 5, 1, 4) and init <function _initializer at 0x7fd2810956e0>
+INFO:tensorflow:Created variable lista/w_e:0 with shape (100, 192) and init <function _initializer at 0x7fd2810956e0>
+INFO:tensorflow:Created variable lista/w_e:0 with shape (100, 192) and init <function _initializer at 0x7fd2810956e0>
+INFO:tensorflow:Created variable lista/w_s1:0 with shape (192, 64) and init <function _initializer at 0x7fd2810956e0>
+INFO:tensorflow:Created variable lista/w_s1:0 with shape (192, 64) and init <function _initializer at 0x7fd2810956e0>
+INFO:tensorflow:Created variable lista/w_s2:0 with shape (64, 192) and init <function _initializer at 0x7fd2810956e0>
+INFO:tensorflow:Created variable lista/w_s2:0 with shape (64, 192) and init <function _initializer at 0x7fd2810956e0>
+INFO:tensorflow:Created variable lista/w_d:0 with shape (192, 25) and init <function _initializer at 0x7fd2810956e0>
+INFO:tensorflow:Created variable lista/w_d:0 with shape (192, 25) and init <function _initializer at 0x7fd2810956e0>
+I tensorflow/core/common_runtime/local_device.cc:40] Local device intra op parallelism threads: 32
+I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:909] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+I tensorflow/core/common_runtime/gpu/gpu_init.cc:103] Found device 0 with properties: 
+name: GRID K520
+major: 3 minor: 0 memoryClockRate (GHz) 0.797
+pciBusID 0000:00:03.0
+Total memory: 4.00GiB
+Free memory: 3.95GiB
+I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:909] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+I tensorflow/core/common_runtime/gpu/gpu_init.cc:103] Found device 1 with properties: 
+name: GRID K520
+major: 3 minor: 0 memoryClockRate (GHz) 0.797
+pciBusID 0000:00:04.0
+Total memory: 4.00GiB
+Free memory: 3.95GiB
+I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:909] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+I tensorflow/core/common_runtime/gpu/gpu_init.cc:103] Found device 2 with properties: 
+name: GRID K520
+major: 3 minor: 0 memoryClockRate (GHz) 0.797
+pciBusID 0000:00:05.0
+Total memory: 4.00GiB
+Free memory: 3.95GiB
+I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:909] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+I tensorflow/core/common_runtime/gpu/gpu_init.cc:103] Found device 3 with properties: 
+name: GRID K520
+major: 3 minor: 0 memoryClockRate (GHz) 0.797
+pciBusID 0000:00:06.0
+Total memory: 4.00GiB
+Free memory: 3.95GiB
+I tensorflow/core/common_runtime/gpu/gpu_init.cc:60] cannot enable peer access from device ordinal 0 to device ordinal 1
+I tensorflow/core/common_runtime/gpu/gpu_init.cc:60] cannot enable peer access from device ordinal 0 to device ordinal 2
+I tensorflow/core/common_runtime/gpu/gpu_init.cc:60] cannot enable peer access from device ordinal 0 to device ordinal 3
+I tensorflow/core/common_runtime/gpu/gpu_init.cc:60] cannot enable peer access from device ordinal 1 to device ordinal 0
+I tensorflow/core/common_runtime/gpu/gpu_init.cc:60] cannot enable peer access from device ordinal 1 to device ordinal 2
+I tensorflow/core/common_runtime/gpu/gpu_init.cc:60] cannot enable peer access from device ordinal 1 to device ordinal 3
+I tensorflow/core/common_runtime/gpu/gpu_init.cc:60] cannot enable peer access from device ordinal 2 to device ordinal 0
+I tensorflow/core/common_runtime/gpu/gpu_init.cc:60] cannot enable peer access from device ordinal 2 to device ordinal 1
+I tensorflow/core/common_runtime/gpu/gpu_init.cc:60] cannot enable peer access from device ordinal 2 to device ordinal 3
+I tensorflow/core/common_runtime/gpu/gpu_init.cc:60] cannot enable peer access from device ordinal 3 to device ordinal 0
+I tensorflow/core/common_runtime/gpu/gpu_init.cc:60] cannot enable peer access from device ordinal 3 to device ordinal 1
+I tensorflow/core/common_runtime/gpu/gpu_init.cc:60] cannot enable peer access from device ordinal 3 to device ordinal 2
+I tensorflow/core/common_runtime/gpu/gpu_init.cc:127] DMA: 0 1 2 3 
+I tensorflow/core/common_runtime/gpu/gpu_init.cc:137] 0:   Y N N N 
+I tensorflow/core/common_runtime/gpu/gpu_init.cc:137] 1:   N Y N N 
+I tensorflow/core/common_runtime/gpu/gpu_init.cc:137] 2:   N N Y N 
+I tensorflow/core/common_runtime/gpu/gpu_init.cc:137] 3:   N N N Y 
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:702] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GRID K520, pci bus id: 0000:00:03.0)
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:702] Creating TensorFlow device (/gpu:1) -> (device: 1, name: GRID K520, pci bus id: 0000:00:04.0)
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:702] Creating TensorFlow device (/gpu:2) -> (device: 2, name: GRID K520, pci bus id: 0000:00:05.0)
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:702] Creating TensorFlow device (/gpu:3) -> (device: 3, name: GRID K520, pci bus id: 0000:00:06.0)
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:42] Allocating 3.66GiB bytes.
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:52] GPU 0 memory begins at 0x1208f80000 extends to 0x12f30f6000
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 1.0KiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 2.0KiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 4.0KiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 8.0KiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 16.0KiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 32.0KiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 64.0KiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 128.0KiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 256.0KiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 512.0KiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 1.00MiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 2.00MiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 4.00MiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 8.00MiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 16.00MiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 32.00MiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 64.00MiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 128.00MiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 256.00MiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 512.00MiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 1.00GiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 2.00GiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 4.00GiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:42] Allocating 3.66GiB bytes.
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:52] GPU 1 memory begins at 0x12f3100000 extends to 0x13dd276000
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 1.0KiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 2.0KiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 4.0KiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 8.0KiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 16.0KiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 32.0KiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 64.0KiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 128.0KiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 256.0KiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 512.0KiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 1.00MiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 2.00MiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 4.00MiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 8.00MiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 16.00MiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 32.00MiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 64.00MiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 128.00MiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 256.00MiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 512.00MiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 1.00GiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 2.00GiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 4.00GiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:42] Allocating 3.66GiB bytes.
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:52] GPU 2 memory begins at 0x13dd280000 extends to 0x14c73f6000
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 1.0KiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 2.0KiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 4.0KiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 8.0KiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 16.0KiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 32.0KiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 64.0KiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 128.0KiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 256.0KiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 512.0KiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 1.00MiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 2.00MiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 4.00MiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 8.00MiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 16.00MiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 32.00MiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 64.00MiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 128.00MiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 256.00MiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 512.00MiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 1.00GiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 2.00GiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 4.00GiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:42] Allocating 3.66GiB bytes.
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:52] GPU 3 memory begins at 0x14c7400000 extends to 0x15b1574000
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 1.0KiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 2.0KiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 4.0KiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 8.0KiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 16.0KiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 32.0KiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 64.0KiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 128.0KiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 256.0KiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 512.0KiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 1.00MiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 2.00MiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 4.00MiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 8.00MiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 16.00MiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 32.00MiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 64.00MiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 128.00MiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 256.00MiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 512.00MiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 1.00GiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 2.00GiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 4.00GiB
+I tensorflow/core/common_runtime/direct_session.cc:61] Direct session inter op parallelism threads: 32
+INFO:tensorflow:Created variable thresh:0 with shape (192,) and init <function _initializer at 0x7fd24c3b8f50>
+INFO:tensorflow:Created variable thresh:0 with shape (192,) and init <function _initializer at 0x7fd24c3b8f50>
+INFO:tensorflow:Created variable w_conv:0 with shape (5, 5, 1, 4) and init <function _initializer at 0x7fd23005f230>
+INFO:tensorflow:Created variable w_conv:0 with shape (5, 5, 1, 4) and init <function _initializer at 0x7fd23005f230>
+INFO:tensorflow:Created variable lista/w_e:0 with shape (100, 192) and init <function _initializer at 0x7fd23005f230>
+INFO:tensorflow:Created variable lista/w_e:0 with shape (100, 192) and init <function _initializer at 0x7fd23005f230>
+INFO:tensorflow:Created variable lista/w_s1:0 with shape (192, 64) and init <function _initializer at 0x7fd23005f230>
+INFO:tensorflow:Created variable lista/w_s1:0 with shape (192, 64) and init <function _initializer at 0x7fd23005f230>
+INFO:tensorflow:Created variable lista/w_s2:0 with shape (64, 192) and init <function _initializer at 0x7fd23005f230>
+INFO:tensorflow:Created variable lista/w_s2:0 with shape (64, 192) and init <function _initializer at 0x7fd23005f230>
+INFO:tensorflow:Created variable lista/w_d:0 with shape (192, 25) and init <function _initializer at 0x7fd23005f230>
+INFO:tensorflow:Created variable lista/w_d:0 with shape (192, 25) and init <function _initializer at 0x7fd23005f230>
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:702] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GRID K520, pci bus id: 0000:00:03.0)
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:702] Creating TensorFlow device (/gpu:1) -> (device: 1, name: GRID K520, pci bus id: 0000:00:04.0)
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:702] Creating TensorFlow device (/gpu:2) -> (device: 2, name: GRID K520, pci bus id: 0000:00:05.0)
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:702] Creating TensorFlow device (/gpu:3) -> (device: 3, name: GRID K520, pci bus id: 0000:00:06.0)
+found ckpt: tmp/paper/test3/b/ckpt-770
+data already cached...
+training set: 500 mb
+testing set: 89 mb
+approx psnr_tr=30.956
+approx psnr_te=29.411
+h0, w0: 570 714
+h1, w1: 588 714
+n_y, n_x: 27 33
+n_y*n_x: 891
+chunk_size: 512
+chunk_size0: 512
+chunk_size: 379
+chunk_size0: 379
+h2, w2: 582 708
+hr_y.shape: (564, 708)
+hr_ycc.shape: (567, 711, 3)
+total time: 0.4 | gpu time: 0.3
+hr PSNR: 26.917, lr PSNR  26.415 for img_002_SRF_4_HR.png
+h0, w0: 282 346
+h1, w1: 294 378
+n_y, n_x: 13 17
+n_y*n_x: 221
+chunk_size: 221
+chunk_size0: 221
+h2, w2: 288 372
+hr_y.shape: (276, 340)
+hr_ycc.shape: (279, 343, 3)
+total time: 0.1 | gpu time: 0.1
+hr PSNR: 29.257, lr PSNR  27.930 for img_004_SRF_4_HR.png
+h0, w0: 650 522
+h1, w1: 672 546
+n_y, n_x: 31 25
+n_y*n_x: 775
+chunk_size: 512
+chunk_size0: 512
+chunk_size: 263
+chunk_size0: 263
+h2, w2: 666 540
+hr_y.shape: (644, 516)
+hr_ycc.shape: (647, 519, 3)
+total time: 0.3 | gpu time: 0.2
+hr PSNR: 28.564, lr PSNR  25.167 for img_013_SRF_4_HR.png
+h0, w0: 354 242
+h1, w1: 378 252
+n_y, n_x: 17 11
+n_y*n_x: 187
+chunk_size: 187
+chunk_size0: 187
+h2, w2: 372 246
+hr_y.shape: (348, 236)
+hr_ycc.shape: (351, 239, 3)
+total time: 0.1 | gpu time: 0.1
+hr PSNR: 26.793, lr PSNR  24.442 for img_005_SRF_4_HR.png
+h0, w0: 382 578
+h1, w1: 420 588
+n_y, n_x: 19 27
+n_y*n_x: 513
+chunk_size: 512
+chunk_size0: 512
+chunk_size: 4
+chunk_size0: 1
+h2, w2: 414 582
+hr_y.shape: (376, 572)
+hr_ycc.shape: (379, 575, 3)
+total time: 0.2 | gpu time: 0.2
+hr PSNR: 32.177, lr PSNR  29.200 for img_014_SRF_4_HR.png
+h0, w0: 506 506
+h1, w1: 546 546
+n_y, n_x: 25 25
+n_y*n_x: 625
+chunk_size: 512
+chunk_size0: 512
+chunk_size: 113
+chunk_size0: 113
+h2, w2: 540 540
+hr_y.shape: (500, 500)
+hr_ycc.shape: (503, 503, 3)
+total time: 0.2 | gpu time: 0.2
+hr PSNR: 33.121, lr PSNR  32.194 for img_012_SRF_4_HR.png
+h0, w0: 282 346
+h1, w1: 294 378
+n_y, n_x: 13 17
+n_y*n_x: 221
+chunk_size: 221
+chunk_size0: 221
+h2, w2: 288 372
+hr_y.shape: (276, 340)
+hr_ycc.shape: (279, 343, 3)
+total time: 0.1 | gpu time: 0.1
+hr PSNR: 36.447, lr PSNR  33.289 for img_008_SRF_4_HR.png
+h0, w0: 506 506
+h1, w1: 546 546
+n_y, n_x: 25 25
+n_y*n_x: 625
+chunk_size: 512
+chunk_size0: 512
+chunk_size: 113
+chunk_size0: 113
+h2, w2: 540 540
+hr_y.shape: (500, 500)
+hr_ycc.shape: (503, 503, 3)
+total time: 0.2 | gpu time: 0.2
+hr PSNR: 33.392, lr PSNR  32.309 for img_009_SRF_4_HR.png
+h0, w0: 506 506
+h1, w1: 546 546
+n_y, n_x: 25 25
+n_y*n_x: 625
+chunk_size: 512
+chunk_size0: 512
+chunk_size: 113
+chunk_size0: 113
+h2, w2: 540 540
+hr_y.shape: (500, 500)
+hr_ycc.shape: (503, 503, 3)
+total time: 0.2 | gpu time: 0.2
+hr PSNR: 29.627, lr PSNR  27.872 for img_010_SRF_4_HR.png
+h0, w0: 474 494
+h1, w1: 504 504
+n_y, n_x: 23 23
+n_y*n_x: 529
+chunk_size: 512
+chunk_size0: 512
+chunk_size: 17
+chunk_size0: 17
+h2, w2: 498 498
+hr_y.shape: (468, 488)
+hr_ycc.shape: (471, 491, 3)
+total time: 0.2 | gpu time: 0.2
+hr PSNR: 23.288, lr PSNR  22.686 for img_001_SRF_4_HR.png
+h0, w0: 506 762
+h1, w1: 546 798
+n_y, n_x: 25 37
+n_y*n_x: 925
+chunk_size: 512
+chunk_size0: 512
+chunk_size: 413
+chunk_size0: 413
+h2, w2: 540 792
+hr_y.shape: (500, 756)
+hr_ycc.shape: (503, 759, 3)
+total time: 0.3 | gpu time: 0.3
+hr PSNR: 35.947, lr PSNR  31.460 for img_011_SRF_4_HR.png
+h0, w0: 270 270
+h1, w1: 294 294
+n_y, n_x: 13 13
+n_y*n_x: 169
+chunk_size: 169
+chunk_size0: 169
+h2, w2: 288 288
+hr_y.shape: (264, 264)
+hr_ycc.shape: (267, 267, 3)
+total time: 0.1 | gpu time: 0.1
+hr PSNR: 31.878, lr PSNR  31.396 for img_006_SRF_4_HR.png
+h0, w0: 506 506
+h1, w1: 546 546
+n_y, n_x: 25 25
+n_y*n_x: 625
+chunk_size: 512
+chunk_size0: 512
+chunk_size: 113
+chunk_size0: 113
+h2, w2: 540 540
+hr_y.shape: (500, 500)
+hr_ycc.shape: (503, 503, 3)
+total time: 0.2 | gpu time: 0.2
+hr PSNR: 27.855, lr PSNR  26.600 for img_003_SRF_4_HR.png
+h0, w0: 354 494
+h1, w1: 378 504
+n_y, n_x: 17 23
+n_y*n_x: 391
+chunk_size: 391
+chunk_size0: 391
+h2, w2: 372 498
+hr_y.shape: (348, 488)
+hr_ycc.shape: (351, 491, 3)
+total time: 0.1 | gpu time: 0.1
+hr PSNR: 30.421, lr PSNR  28.385 for img_007_SRF_4_HR.png
+total test PSNR: 28.978
+total baseline PSNR: 27.397

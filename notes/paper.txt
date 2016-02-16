@@ -1,0 +1,53 @@
+total baseline PSNR: 27.397
+
+1. norm vs res
+  a)
+  approx psnr_tr=29.892
+  approx psnr_te=28.600
+  total test PSNR: 28.361
+  b)
+  approx psnr_tr=30.302
+  approx psnr_te=29.050
+  total test PSNR: 28.721
+  
+2. stride=1,2
+  a)
+  approx psnr_tr=30.302
+  approx psnr_te=29.050
+  total test PSNR: 28.721
+  b)
+  approx psnr_tr=29.880
+  approx psnr_te=28.695
+  total test PSNR: 28.465
+  
+3. S vs S = UV
+  a)
+  approx psnr_tr=30.326
+  approx psnr_te=29.053
+  total test PSNR: 28.731
+  b)
+  approx psnr_tr=30.418
+  approx psnr_te=29.105
+  total test PSNR: 28.769
+  c)
+  approx psnr_tr=29.913
+  approx psnr_te=28.731
+  total test PSNR: 28.446
+  
+4. explicit L1 prior on z
+  a)
+  approx psnr_tr=30.418
+  approx psnr_te=29.105
+  total test PSNR: 28.769
+  b)
+  approx psnr_tr=28.836
+  approx psnr_te=27.733
+  total test PSNR: 27.557
+  c)
+  approx psnr_tr=28.637
+  approx psnr_te=27.545
+  total test PSNR: 27.388
+
+5. gst vs st
+6. lista vs lcod
+7. comparison with VDSR/DRCN
