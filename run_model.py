@@ -195,7 +195,7 @@ def train(conf, ckpt=False):
                     summ_str = sess.run(summ_op, feed_dict=feed)
                     summ_writer.add_summary(summ_str, step)
 
-                if step % 200 == 0:
+                if step % 150 == 0:
                     saver.save(sess, os.path.join(path_tmp, 'ckpt'),
                         global_step=step)
 
