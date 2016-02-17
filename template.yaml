@@ -21,6 +21,7 @@ n_c: 192
 T: 8
 cw: 6
 thresh0: 9.E-3
+subnet_name: lcod
 e_rank: -1
 s_rank: -1
 d_rank: -1
