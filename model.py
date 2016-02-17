@@ -192,7 +192,7 @@ def _lcod(x, w_e, w_s, thresh, T):
 
                 tmp = tf.reduce_max(abs_z_diff, 1, True)
                 tmp2 = tf.equal(abs_z_diff, tmp)
-                e = select(tmp2, z_diff, tf.zeros_like(z_bar, dtype=tf.float32),
+                e = tf.select(tmp2, z_diff, tf.zeros_like(z_bar, dtype=tf.float32),
                            name='e')
                 ks = tf.argmax(abs_z_diff, 1, name='ks')
                 

@@ -11,23 +11,23 @@ tf.app.flags.DEFINE_string('tower_name', 'tower',
     """is removed from the names of all summaries when visualizing a model.""")
 tf.app.flags.DEFINE_boolean('log_device_placement', False,
     "Whether to log device placement.")
-tf.app.flags.DEFINE_integer('num_gpus', 1, "How many GPUs to use.")
-tf.app.flags.DEFINE_boolean('dev_assign', False, "Do assign tf.devices.")
+tf.app.flags.DEFINE_integer('num_gpus', 4, "How many GPUs to use.")
+tf.app.flags.DEFINE_boolean('dev_assign', True, "Do assign tf.devices.")
 
 def main():
     template_conf_path = "template.yaml"
     with open(template_conf_path, 'r') as f:
         conf = yaml.load(f)
     
-    Ts = [1]
-    Cs = [16]
-    Ks = [10]
+    Ts = [4]
+    Cs = [32]
+    Ks = [28]
     grid = [(T, C, K) for T in Ts for C in Cs for K in Ks]
     for T, C, K in grid:
         conf['T'] = T
         conf['n_c'] = C
         conf['e_rank'] = K
-        conf['mb_size'] = 1
+        conf['mb_size'] = 64
         conf['path_tmp'] = 'tmp/%03d_%03d_%03d' % (T, C, K)
         run_model.train(conf)
         psnr, bl_psnr = run_model.eval_te(conf)

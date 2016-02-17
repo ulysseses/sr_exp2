@@ -111,15 +111,30 @@ def clip_by_norm(gvs, grad_norm_thresh, scope="grad_clip"):
       grad_norm_thresh: norm threshold to clip
       scope: scope for the clip operation
     """
+    new_gvs = []
     if scope:
         with tf.name_scope(scope):
-            gvs = [(tf.clip_by_norm(gv[0], grad_norm_thresh), gv[1]) \
-                   for gv in gvs if gv[0]]
-            return gvs
+            #gvs = [(tf.clip_by_norm(gv[0], grad_norm_thresh), gv[1]) \
+            #       for gv in gvs if gv[0]]
+            #return gvs
+            for gv in gvs:
+                if gv[0]:
+                    new_gvs.append((tf.clip_by_norm(gv[0], grad_norm_thresh), gv[1]))
+                else:
+                    print("no gradient for %s" % gv[1].op.name)
+                    new_gvs.append(gv)
+            return new_gvs
     else:
-        gvs = [(tf.clip_by_norm(gv[0], grad_norm_thresh), gv[1]) \
-               for gv in gvs if gv[0]]
-        return gvs
+        #gvs = [(tf.clip_by_norm(gv[0], grad_norm_thresh), gv[1]) \
+        #       for gv in gvs if gv[0]]
+        #return gvs
+        for gv in gvs:
+            if gv[0]:
+                new_gvs.append((tf.clip_by_norm(gv[0], grad_norm_thresh), gv[1]))
+            else:
+                print("no gradient for %s" % gv[1].op.name)
+                new_gvs.append(gv)
+        return new_gvs        
 
 
 def average_gradients(tower_grads, name='avg_grads_sync'):

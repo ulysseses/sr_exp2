@@ -201,6 +201,11 @@ def train(conf, ckpt=None):
 
                 step += 1
             
+            # Evaluation
+            psnr_tr = eval_epoch(Xs, Ys, y, sess, tr_stream, cropw)
+            psnr_te = eval_epoch(Xs, Ys, y, sess, te_stream, cropw)
+            print('approx psnr_tr=%.3f' % psnr_tr)
+            print('approx psnr_te=%.3f' % psnr_te)
             saver.save(sess, os.path.join(path_tmp, 'ckpt'),
                        global_step=step)            
 
