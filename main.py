@@ -26,7 +26,7 @@ def main():
     grid = [(T, C, K) for T in Ts for C in Cs for K in Ks if K < C]
     flag = False
     for T, C, K in grid:
-        if T == 2 and C == 256 and K == 56:
+        if T == 4 and C == 128 and K == 28:
             flag = True
         if not flag:
             continue
@@ -37,7 +37,10 @@ def main():
         conf['e_rank'] = K
         conf['mb_size'] = budget / (T * C)
         conf['path_tmp'] = 'tmp/%03d_%03d_%03d' % (T, C, K)
-        run_model.train(conf)
+        if False:#T == 4 and C == 64 and K == 28:
+            pass
+        else:
+            run_model.train(conf)
         psnr, bl_psnr = run_model.eval_te(conf)
         with open('notes/log.txt', 'a') as f:
             f.write('T: %03d C: %03d K: %03d PSNR: %.2f (%.2f)\n' % \

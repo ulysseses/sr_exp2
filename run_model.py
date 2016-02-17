@@ -142,10 +142,10 @@ def train(conf, ckpt=None):
         sess, saver, summ_writer, summ_op = tools.tf_boilerplate(summs, conf, ckpt)
 
         # Baseline error
-        bpsnr_tr = tools.baseline_psnr(tr_stream)
-        bpsnr_te = tools.baseline_psnr(te_stream)
-        print('approx baseline psnr_tr=%.3f' % bpsnr_tr)
-        print('approx baseline psnr_te=%.3f' % bpsnr_te)
+        #bpsnr_tr = tools.baseline_psnr(tr_stream)
+        #bpsnr_te = tools.baseline_psnr(te_stream)
+        #print('approx baseline psnr_tr=%.3f' % bpsnr_tr)
+        #print('approx baseline psnr_te=%.3f' % bpsnr_te)
 
         # Train
         format_str = ('%s| %04d PSNR=%.3f (%.3f) (F+B: %.1fex/s; %.1fs/batch)'

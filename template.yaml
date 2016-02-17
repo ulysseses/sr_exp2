@@ -33,7 +33,7 @@ mb_size: 256
 n_epochs: 7
 l2_reg: 1.E-4
 lr0: 1.E-2
-n_epochs_per_decay: 4
+n_epochs_per_decay: 6
 lr_decay_factor: 0.1
 grad_norm_thresh: 50
 
