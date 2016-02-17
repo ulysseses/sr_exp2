@@ -21,12 +21,12 @@ def main():
     
     Ts = [1, 2, 4, 8]
     Cs = [32, 64, 128, 256]
-    Ks = [28, 56]
-    budget = 128 * 4 * 32
+    Ks = [28]
+    budget = 128 * 4 * 48
     grid = [(T, C, K) for T in Ts for C in Cs for K in Ks if K < C]
     flag = False
     for T, C, K in grid:
-        if T == 4 and C == 128 and K == 28:
+        if T == 8 and C == 32 and K == 28:
             flag = True
         if not flag:
             continue
@@ -37,7 +37,7 @@ def main():
         conf['e_rank'] = K
         conf['mb_size'] = budget / (T * C)
         conf['path_tmp'] = 'tmp/%03d_%03d_%03d' % (T, C, K)
-        if False:#T == 4 and C == 64 and K == 28:
+        if False: #T == 8 and C == 32 and K == 28:
             pass
         else:
             run_model.train(conf)

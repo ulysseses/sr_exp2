@@ -15,11 +15,13 @@ from utils import preproc
 FLAGS = tf.app.flags.FLAGS
 
 
-def reset_tmp(path_tmp):
+def reset_tmp(path_tmp, ckpt):
     """
     If path_tmp doesn't exist, create it.
     Otherwise, delete all non-.h5 files in path_tmp.
     """
+    if ckpt:
+        return
     # If path_tmp doesn't exist, create it
     if not os.path.exists(path_tmp):
         os.makedirs(path_tmp)
@@ -197,14 +199,14 @@ def track_err():
     return err_sum_op, psnr_tr_t, psnr_te_t
 
 
-def tf_boilerplate(summs, conf, ckpt=None):
+def tf_boilerplate(summs, conf, ckpt=False):
     """
     TensorFlow boilerplate code
     
     Args:
       summs: summaries
       conf: configuration dictionary
-      ckpt (None): if not None, restore from this path
+      ckpt (False): restore from path_tmp
     Returns:
       sess: session
       saver: saver
@@ -230,6 +232,9 @@ def tf_boilerplate(summs, conf, ckpt=None):
     init = tf.initialize_all_variables()
     sess.run(init)
     if ckpt:
+        ckpt = tf.train.get_checkpoint_state(path_tmp).model_checkpoint_path
+        print('found ckpt: %s' % ckpt)
+        time.sleep(2)
         saver.restore(sess, ckpt)
 
     return sess, saver, summ_writer, summ_op
