@@ -30,7 +30,7 @@ d_rank: -1
 path_tmp: tmp
 load_in_memory: true
 mb_size: 256
-n_epochs: 9
+n_epochs: 8
 l2_reg: 1.E-4
 lr0: 1.E-2
 n_epochs_per_decay: 4
