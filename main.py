@@ -24,7 +24,12 @@ def main():
     Ks = [28, 56]
     budget = 128 * 4 * 32
     grid = [(T, C, K) for T in Ts for C in Cs for K in Ks if K < C]
+    flag = False
     for T, C, K in grid:
+        if T == 2 and C == 256 and K == 56:
+            flag = True
+        if not flag:
+            continue
         print("T: %d C: %03d K: %02d" % (T, C, K))
         time.sleep(2)
         conf['T'] = T
