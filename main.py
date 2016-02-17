@@ -21,10 +21,12 @@ def main():
     
     Ts = [1, 2, 4, 8]
     Cs = [32, 64, 128, 256]
-    Ks = [28, 56, 0]
+    Ks = [28, 56]
     budget = 128 * 4 * 32
     grid = [(T, C, K) for T in Ts for C in Cs for K in Ks if K < C]
     for T, C, K in grid:
+        print("T: %d C: %03d K: %02d" % (T, C, K))
+        time.sleep(2)
         conf['T'] = T
         conf['n_c'] = C
         conf['e_rank'] = K
