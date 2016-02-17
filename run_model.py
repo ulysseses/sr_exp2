@@ -148,7 +148,7 @@ def train(conf, ckpt=None):
         print('approx baseline psnr_te=%.3f' % bpsnr_te)
 
         # Train
-        format_str = ('%s| %04d PSNR=%.3f (F+B: %.1fex/s; %.1fs/batch)'
+        format_str = ('%s| %04d PSNR=%.3f (%.3f) (F+B: %.1fex/s; %.1fs/batch)'
                       '(F: %.1fex/s; %.1fs/batch)')
         step = 0
         for epoch in range(n_epochs):
@@ -184,9 +184,10 @@ def train(conf, ckpt=None):
                     duration_eval = time.time() - start_time
                     
                     psnr = tools.eval_psnr(y_c, y_eval)
+                    bl_psnr = tools.eval_psnr(y_c, X_c[:, cw:-cw, cw:-cw])
                     ex_per_step_tr = mb_size * FLAGS.num_gpus / duration_tr
                     ex_per_step_eval = mb_size * FLAGS.num_gpus / duration_eval
-                    print(format_str % (datetime.now().time(), step, psnr,
+                    print(format_str % (datetime.now().time(), step, psnr, bl_psnr,
                           ex_per_step_tr, float(duration_tr / FLAGS.num_gpus),
                           ex_per_step_eval, float(duration_eval / FLAGS.num_gpus)))
 
