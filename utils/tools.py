@@ -122,6 +122,7 @@ def clip_by_norm(gvs, grad_norm_thresh, scope="grad_clip"):
                     new_gvs.append((tf.clip_by_norm(gv[0], grad_norm_thresh), gv[1]))
                 else:
                     print("no gradient for %s" % gv[1].op.name)
+                    #raise
                     new_gvs.append(gv)
             return new_gvs
     else:
@@ -133,6 +134,7 @@ def clip_by_norm(gvs, grad_norm_thresh, scope="grad_clip"):
                 new_gvs.append((tf.clip_by_norm(gv[0], grad_norm_thresh), gv[1]))
             else:
                 print("no gradient for %s" % gv[1].op.name)
+                #raise
                 new_gvs.append(gv)
         return new_gvs        
 

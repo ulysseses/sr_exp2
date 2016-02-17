@@ -496,8 +496,11 @@ def img2patches(img, iw, stride):
     n_x = len(range(0, w - iw + 1, stride))
     patches = np.empty((n_y*n_x, iw, iw, 1), dtype=np.float32)
     
-    for ind, crop in enumerate(_crop_gen(img, iw, stride)):
-        patches[ind] = crop[..., np.newaxis]
+    ind = 0
+    for i in range(0, h - iw + 1, stride):
+        for j in range(0, w - iw + 1, stride):
+            patches[ind] = img[i : i + iw, j : j + iw, np.newaxis]
+            ind += 1
     assert ind == n_y*n_x
 
     return patches

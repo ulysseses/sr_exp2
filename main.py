@@ -27,9 +27,9 @@ def main():
         conf['T'] = T
         conf['n_c'] = C
         conf['e_rank'] = K
-        conf['mb_size'] = 64
+        conf['mb_size'] = 128
         conf['path_tmp'] = 'tmp/%03d_%03d_%03d' % (T, C, K)
-        run_model.train(conf)
+        #run_model.train(conf)
         psnr, bl_psnr = run_model.eval_te(conf)
         with open('notes/log.txt', 'a') as f:
             f.write('T: %03d C: %03d K: %03d PSNR: %.2f (%.2f)\n' % \

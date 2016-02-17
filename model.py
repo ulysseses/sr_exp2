@@ -296,6 +296,7 @@ def inference(x, conf):
             else:
                 s = (np.eye(n_c) - e.T.dot(e)).astype(np.float32)
             d = np.random.randn(n_c, pw*pw).astype(np.float32) * _relu_std(1, n_c)
+            #d = np.zeros((n_c, pw*pw), dtype=np.float32)
             # Encoder
             w_e = _low_rank_helper(e, e_rank, 'e')
             # S matrix

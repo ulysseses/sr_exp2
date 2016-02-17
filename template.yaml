@@ -29,8 +29,8 @@ d_rank: -1
 # training
 path_tmp: tmp
 load_in_memory: true
-mb_size: 32
-n_epochs: 13
+mb_size: 256
+n_epochs: 9
 l2_reg: 1.E-4
 lr0: 1.E-2
 n_epochs_per_decay: 4
@@ -38,5 +38,5 @@ lr_decay_factor: 0.1
 grad_norm_thresh: 50
 
 # evaluation
-save_sr_imgs: false
+save_sr_imgs: true
 path_eval: data/Set5_Y

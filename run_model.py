@@ -155,7 +155,7 @@ def train(conf, ckpt=None):
             print('--- Epoch %d ---' % epoch)
             # Training
             for X_c, y_c in tr_stream.get_epoch_iterator():
-                if X_c.shape[0] < FLAGS.num_gpus * mb_size:
+                if X_c.shape[0] < FLAGS.num_gpus:
                     continue
                 y_c = y_c[:, cw:-cw, cw:-cw]
                 chunk_size = X_c.shape[0]
@@ -202,8 +202,8 @@ def train(conf, ckpt=None):
                 step += 1
             
             # Evaluation
-            psnr_tr = eval_epoch(Xs, Ys, y, sess, tr_stream, cropw)
-            psnr_te = eval_epoch(Xs, Ys, y, sess, te_stream, cropw)
+            psnr_tr = eval_epoch(Xs, Ys, y, sess, tr_stream, cw)
+            psnr_te = eval_epoch(Xs, Ys, y, sess, te_stream, cw)
             print('approx psnr_tr=%.3f' % psnr_tr)
             print('approx psnr_te=%.3f' % psnr_te)
             saver.save(sess, os.path.join(path_tmp, 'ckpt'),
@@ -218,7 +218,6 @@ def train(conf, ckpt=None):
 def infer(img, Xs, y, sess, conf, save=None):
     """
     Upsample with our neural network.
-
     Args:
       img: image to upsample
       Xs: input placeholders list
@@ -257,18 +256,17 @@ def infer(img, Xs, y, sess, conf, save=None):
     # Infer
     crops_out = np.empty((n_y*n_x, iw-2*cw, iw-2*cw, 1), dtype=np.float32)
     start_time1 = time.time()
-    min_size = FLAGS.num_gpus * mb_size
     for i in range(0, n_y*n_x, FLAGS.num_gpus * mb_size):
         X_c = crops_in[i : i + FLAGS.num_gpus * mb_size]
         chunk_size0 = X_c.shape[0]
 
-        # Handle chunks that are less than min_size
-        if chunk_size0 < min_size:
-            pad_shp1 = (min_size - chunk_size0, X_c.shape[1], X_c.shape[2], X_c.shape[3])
-            pad_shp2 = (min_size - chunk_size0, y_c.shape[1], y_c.shape[2], y_c.shape[3])
-            X_c = np.vstack((X_c, np.zeros(pad_shp1, dtype=np.float32)))
-            y_c = np.vstack((y_c, np.zeros(pad_shp2, dtype=np.float32)))
-            chunk_size = X_c.shape[0]
+        # Handle chunks that are less than number of gpu's
+        chunk_size = chunk_size0
+        if chunk_size < FLAGS.num_gpus:
+            num_repeats = FLAGS.num_gpus - chunk_size + 1
+            repeats = [1 for _ in range(chunk_size-1)] + [num_repeats]
+            X_c = np.repeat(X_c, repeats, axis=0)
+            chunk_size = FLAGS.num_gpus
 
         gpu_chunk = chunk_size // FLAGS.num_gpus
         dict_input1 = [(Xs[j], X_c[j*gpu_chunk : \
