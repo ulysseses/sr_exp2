@@ -20,8 +20,8 @@ def lcod():
     with open(template_conf_path, 'r') as f:
         conf = yaml.load(f)
     
-    Ts = [4]
-    Cs = [128]
+    Ts = [8]
+    Cs = [32]
     Ks = [28]
     budget = 128 * 4 * 16
     grid = [(T, C, K) for T in Ts for C in Cs for K in Ks if K < C]
@@ -50,7 +50,7 @@ def lista():
     Ts = [1]
     Cs = [128]
     Ks = [0]
-    budget = 128 * 4 * 48
+    budget = 128 * 4 * 32
     grid = [(T, C, K) for T in Ts for C in Cs for K in Ks if K < C]
     flag = False
     for T, C, K in grid:
@@ -68,5 +68,10 @@ def lista():
 
 
 if __name__ == '__main__':
-    lcod()
+    #lcod()
     #lista()
+    template_conf_path = "notes/lista_1_128_100.yaml"
+    with open(template_conf_path, 'r') as f:
+        conf = yaml.load(f)
+    
+    run_model.eval_te(conf)

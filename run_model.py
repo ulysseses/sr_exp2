@@ -315,7 +315,7 @@ def eval_te(conf):
     Returns:
       psnr: psnr of entire test set
     """
-    path_te = conf['path_va']
+    path_te = conf['path_eval']
     iw = conf['iw']
     sr = conf['sr']
     cw = conf['cw']

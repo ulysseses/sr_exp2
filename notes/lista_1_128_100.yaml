@@ -17,19 +17,19 @@ fw: 5
 pw: 5
 ps: 1
 n_chans: 4
-n_c: 256                    #####
-T: 8                        #####
+n_c: 128                    #####
+T: 1                        #####
 cw: 6
 thresh0: 9.E-3
-subnet_name: lcod
-e_rank: 28                  #####
-s_rank: -1
+subnet_name: lista
+e_rank: -1                  #####
+s_rank: 32
 d_rank: -1
 
 # training
-path_tmp: tmp/008_256_028   #####
+path_tmp: tmp/lista         #####
 load_in_memory: true
-mb_size: 2                  #####
+mb_size: 64                 #####
 n_epochs: 7
 l2_reg: 1.E-4
 lr0: 1.E-2
@@ -39,4 +39,4 @@ grad_norm_thresh: 50
 
 # evaluation
 save_sr_imgs: true
-path_eval: data/Set5_Y
+path_eval: data/Set14_Y

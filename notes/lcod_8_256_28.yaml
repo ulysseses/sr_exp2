@@ -39,4 +39,4 @@ grad_norm_thresh: 50
 
 # evaluation
 save_sr_imgs: true
-path_eval: data/Set5_Y
+path_eval: data/Set14_Y

@@ -18,7 +18,7 @@ pw: 5
 ps: 1
 n_chans: 4
 n_c: 256                    #####
-T: 8                        #####
+T: 2                        #####
 cw: 6
 thresh0: 9.E-3
 subnet_name: lcod
@@ -27,7 +27,7 @@ s_rank: -1
 d_rank: -1
 
 # training
-path_tmp: tmp/008_256_028   #####
+path_tmp: tmp/002_256_028   #####
 load_in_memory: true
 mb_size: 2                  #####
 n_epochs: 7
@@ -39,4 +39,4 @@ grad_norm_thresh: 50
 
 # evaluation
 save_sr_imgs: true
-path_eval: data/Set5_Y
+path_eval: data/Set14_Y
