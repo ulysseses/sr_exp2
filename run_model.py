@@ -150,7 +150,8 @@ def train(conf, ckpt=False):
         # Train
         format_str = ('%s| %04d PSNR=%.3f (%.3f) (F+B: %.1fex/s; %.1fs/batch)'
                       '(F: %.1fex/s; %.1fs/batch)')
-        step = 0
+        #step = 0
+        step = sess.run(global_step)
         for epoch in range(n_epochs):
             print('--- Epoch %d ---' % epoch)
             # Training
@@ -352,8 +353,7 @@ def eval_te(conf):
         time.sleep(2)
 
         # Iterate over each image, and calculate error
-        tmse = 0
-        bl_tmse = 0
+        avg_psnr, avg_bl_psnr = 0., 0.
         for fn in fns_te:
             lr, gt = preproc.lr_hr(sm.imread(fn), sr)
             fn_ = fn.split('/')[-1].split('.')[0]
@@ -364,25 +364,23 @@ def eval_te(conf):
             gt = gt[:hr.shape[0], :hr.shape[1]]
             diff = gt.astype(np.float32) - hr.astype(np.float32)
             mse = np.mean(diff ** 2)
-            tmse += mse
             psnr = 20 * np.log10(255.0 / np.sqrt(mse))
+            avg_psnr += psnr
             
             lr = lr[cw:, cw:]
             lr = lr[:hr.shape[0], :hr.shape[1]]
             bl_diff = gt.astype(np.float32) - lr.astype(np.float32)
             bl_mse = np.mean(bl_diff ** 2)
-            bl_tmse += bl_mse
             bl_psnr = 20 * np.log10(255.0 / np.sqrt(bl_mse))
+            avg_bl_psnr += bl_psnr
             
             print('hr PSNR: %.3f, lr PSNR % .3f for %s' % \
                 (psnr, bl_psnr, fn.split('/')[-1]))
-        rmse = np.sqrt(tmse / n)
-        psnr = 20 * np.log10(255. / rmse)
-        bl_rmse = np.sqrt(bl_tmse / n)
-        bl_psnr = 20 * np.log10(255. / bl_rmse)
-        print('total test PSNR: %.3f' % psnr)
-        print('total baseline PSNR: %.3f' % bl_psnr)
-        return psnr, bl_psnr
+        avg_psnr /= len(fns_te)
+        avg_bl_psnr /= len(fns_te)
+        print('average test PSNR: %.3f' % avg_psnr)
+        print('average baseline PSNR: %.3f' % avg_bl_psnr)
+        return avg_psnr, avg_bl_psnr
 
 
 def eval_h5(conf, ckpt):
