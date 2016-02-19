@@ -70,8 +70,8 @@ def lista():
 if __name__ == '__main__':
     #lcod()
     #lista()
-    template_conf_path = "notes/lista_1_128_100.yaml"
+    template_conf_path = "notes/lcod_1_512_28.yaml"
     with open(template_conf_path, 'r') as f:
         conf = yaml.load(f)
-    
-    run_model.eval_te(conf)
+    run_model.train(conf)
+    run_model.eval_sam(conf);

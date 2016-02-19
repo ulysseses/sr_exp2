@@ -296,9 +296,10 @@ def store_hdf5(conf, pp=None, **kwargs):
     if prune > 0:
         HR_vars = np.empty(ind_tr, dtype=np.float32)
         for i in range(0, ind_tr, chunk_size):
-            HR_vars[i : i + chunk_size] = np.var(HRh5[i : i + chunk_size],
-                                                 axis=(1, 2, 3))
-        bottom = int(round(prune * n))
+            min_size = min(chunk_size, ind_tr - i)
+            HR_vars[i : i + min_size] = np.var(HRh5[i : i + min_size],
+                                               axis=(1, 2, 3))
+        bottom = int(round(prune * ind_tr))
         cutoff = HR_vars[np.argpartition(HR_vars, bottom)[:bottom]].max()
 
         ind_tr = 0
@@ -342,7 +343,7 @@ def store_hdf5(conf, pp=None, **kwargs):
                                   range(ind_tr, 2*ind_tr, chunk_size),
                                   range(2*ind_tr, 3*ind_tr, chunk_size),
                                   range(3*ind_tr, 4*ind_tr, chunk_size)):
-            shp0 = min(chunk_size, ind_tr)
+            shp0 = min(chunk_size, ind_tr - i0)
             lrs[:shp0] = LRh5[i0 : min(i0 + chunk_size, ind_tr)]
             hrs[:shp0] = HRh5[i0 : min(i0 + chunk_size, ind_tr)]
 

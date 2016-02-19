@@ -1,0 +1,42 @@
+# store_hdf5
+path_h5: tmp/data.h5
+path_tr: data/BSDS500/train
+path_te: data/sam
+path_va: data/Set5_Y
+iw: 56
+stride: 47
+sr: 4
+augment: true
+prune: 0.4
+border: 3
+chunk_size: 20000
+data_cached: true
+
+# inference
+fw: 5
+pw: 5
+ps: 1
+n_chans: 4
+n_c: 512                    #####
+T: 1                        #####
+cw: 6
+thresh0: 9.E-3
+subnet_name: lcod
+e_rank: 28                  #####
+s_rank: -1
+d_rank: -1
+
+# training
+path_tmp: tmp/001_512_028   #####
+load_in_memory: true
+mb_size: 16                 #####
+n_epochs: 9
+l2_reg: 1.E-4
+lr0: 1.E-2
+n_epochs_per_decay: 7
+lr_decay_factor: 0.5
+grad_norm_thresh: 50
+
+# evaluation
+save_sr_imgs: true
+path_eval: data/sam

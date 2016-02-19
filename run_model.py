@@ -248,7 +248,7 @@ def infer(img, Xs, y, sess, conf, save=None):
         raise ValueError('img must be RGB or Y')
 
     lr_y = preproc.padcrop(lr_y, iw)
-    h0, w0 = img.shape
+    h0, w0 = img.shape[:2]
 
     # Fill into a data array
     n_y, n_x = preproc.num_patches(lr_y, iw, stride)
@@ -381,6 +381,58 @@ def eval_te(conf):
         print('average test PSNR: %.3f' % avg_psnr)
         print('average baseline PSNR: %.3f' % avg_bl_psnr)
         return avg_psnr, avg_bl_psnr
+        
+        
+def eval_sam(conf):
+    """
+    Evaluate against the entire test set of images.
+
+    Args:
+      conf: configuration dictionary
+    """
+    path_te = conf['path_eval']
+    iw = conf['iw']
+    sr = conf['sr']
+    cw = conf['cw']
+    fns_te = preproc._get_filenames(path_te)
+    n = len(fns_te)
+
+    with tf.Graph().as_default(), tf.device('/cpu:0' if FLAGS.dev_assign else None):
+        # Placeholders
+        Xs = [tf.placeholder(tf.float32, [None, iw, iw, 1], name='X_%02d' % i) \
+              for i in range(FLAGS.num_gpus)]
+
+        y_splits = []
+        for i in range(FLAGS.num_gpus):
+            with tf.device(('/gpu:%d' % i) if FLAGS.dev_assign else None):
+                with tf.name_scope('%s_%02d' % (FLAGS.tower_name, i)) as scope:
+                    y_split, _ = model.inference(Xs[i], conf)
+                    y_splits.append(y_split)
+                    tf.get_variable_scope().reuse_variables()
+        y = tf.concat(0, y_splits, name='y')
+        
+        # Restore
+        saver = tf.train.Saver(tf.trainable_variables())
+        sess = tf.Session(config=tf.ConfigProto(
+            allow_soft_placement=True,
+            log_device_placement=FLAGS.log_device_placement))
+            
+        ckpt = tf.train.get_checkpoint_state(conf['path_tmp'])
+        if ckpt:
+            ckpt = ckpt.model_checkpoint_path
+            print('checkpoint found: %s' % ckpt)
+            saver.restore(sess, ckpt)
+        else:
+            print('checkpoint not found!')
+        time.sleep(2)
+
+        # Iterate over each image, and calculate error
+        for fn in fns_te:
+            lr = preproc.imresize(sm.imread(fn), float(sr))
+            lr = preproc.shave(lr, sr)  # border = sr
+            fn_ = fn.split('/')[-1].split('.')[0]
+            out_name = os.path.join('tmp', fn_ + '_HR.bmp')
+            infer(lr, Xs, y, sess, conf, out_name);
 
 
 def eval_h5(conf, ckpt):
